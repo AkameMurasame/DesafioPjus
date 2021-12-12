@@ -1,0 +1,64 @@
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DesafioPjus</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+        <ul class="navbar-nav flex-grow-1">
+          <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <main role="main" class="pb-3">
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="cepForm">
+          <div class="row p-3">
+            <div class="col-12 mb-2">
+              <label>Cep:</label>
+              <input id="cep" type="text" class="form-control" formControlName="cep">
+            </div>
+            <div class="col-12 mt-3">
+              <button type="button" (click)="pesquisar()"
+                class="btn btn-outline-success btn-sm float-rigth">Pesquisar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-12">
+        <div class="card" *ngIf="this.viaCep != null">
+          <div class="card-header text-center">
+            <h5 class="card-title">Resultado</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Cep: {{ this.viaCep.cep }}</p>
+            <p class="card-text">Logradouro: {{ this.viaCep.logradouro }}</p>
+            <p class="card-text">Bairro: {{ this.viaCep.bairro }}</p>
+            <p class="card-text">Localidade: {{ this.viaCep.localidade }}</p>
+            <p class="card-text">Complemento: {{ this.viaCep.complemento }}</p>
+            <p class="card-text">Uf: {{ this.viaCep.uf }}</p>
+            <p class="card-text">Ibge: {{ this.viaCep.ibge }}</p>
+            <p class="card-text">Gia: {{ this.viaCep.gia }}</p>
+            <p class="card-text">Ddd: {{ this.viaCep.ddd }}</p>
+            <p class="card-text">Siafi: {{ this.viaCep.siafi }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="border-top footer text-muted">
+  <div class="container">
+    &copy; 2021 - DesafioPjus
+  </div>
+</footer>
